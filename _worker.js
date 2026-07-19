@@ -13,9 +13,7 @@ const SUB选项列表 = [
 	{ 名称: 'Mia提供', SUB: 'sub.mia.xx.kg' },
 	{ 名称: '辣子鸡提供', SUB: 'sub.lzjbaby.com' },
 	{ 名称: '辣椒炒肉少放辣', SUB: 'sub.xdu.qzz.io' },
-	{ 名称: 'DanFeng', SUB: 'sub.danfeng.eu.org' },
 	{ 名称: '洛璃', SUB: 'loli.sub.us.ci' },
-	{ 名称: 'S5公益', SUB: 'sub.995677.xyz' },
 	{ 名称: '广移专属', SUB: 'sub.pjq.cc.cd' }
 ];
 ///////////////////////////////////////////////////////全局常量和工具函数///////////////////////////////////////////////

@@ -4,16 +4,19 @@ let SOCKS5白名单 = ['*tapecontent.net', '*cloudatacdn.com', '*loadshare.org',
 const Pages静态页面 = 'https://edt-pages-github-io-644.pages.dev';
 ///////////////////////////////////////////////////////优选订阅生成器维护者列表///////////////////////////////////////////////
 const SUB选项列表 = [
-	{ 名称: '优选维护1', SUB: 'Cm.Soso.Edu.Kg' },
-	{ 名称: '优选维护2', SUB: 'Sub.Cmliussss.Net' },
-	{ 名称: '优选维护3', SUB: 'Owo.O00o.Ooo' },
-	{ 名称: '天诚维护', SUB: 'cm.soso.edu.kg' },
-	{ 名称: '周润发维护', SUB: 'zrf.zrf.me' },
-	{ 名称: '文烨维护', SUB: 'sub.keaeye.icu' },
-	{ 名称: 'Kristi维护', SUB: 'sub.mot.cloudns.biz' },
-	{ 名称: 'Mia提供维护', SUB: 'sub.mia.xx.kg' },
-	{ 名称: '辣子鸡提供维护', SUB: 'sub.lzjbaby.com' },
-	{ 名称: '辣椒炒肉少放辣维护', SUB: 'sub.xdu.qzz.io' }
+	{ 名称: '优选1', SUB: 'Sub.Cmliussss.Net' },
+	{ 名称: '优选2', SUB: 'Owo.O00o.Ooo' },
+	{ 名称: '天诚', SUB: 'cm.soso.edu.kg' },
+	{ 名称: '周润发', SUB: 'zrf.zrf.me' },
+	{ 名称: '文烨', SUB: 'sub.keaeye.icu' },
+	{ 名称: 'Kristi', SUB: 'sub.mot.cloudns.biz' },
+	{ 名称: 'Mia提供', SUB: 'sub.mia.xx.kg' },
+	{ 名称: '辣子鸡提供', SUB: 'sub.lzjbaby.com' },
+	{ 名称: '辣椒炒肉少放辣', SUB: 'sub.xdu.qzz.io' },
+	{ 名称: 'DanFeng', SUB: 'sub.danfeng.eu.org' },
+	{ 名称: '洛璃', SUB: 'loli.sub.us.ci' },
+	{ 名称: 'S5公益', SUB: 'sub.995677.xyz' },
+	{ 名称: '广移专属', SUB: 'sub.pjq.cc.cd' }
 ];
 ///////////////////////////////////////////////////////全局常量和工具函数///////////////////////////////////////////////
 const WS早期数据最大字节 = 8 * 1024, WS早期数据最大头长度 = Math.ceil(WS早期数据最大字节 * 4 / 3) + 4;

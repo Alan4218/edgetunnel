@@ -1,18 +1,19 @@
 name: Upstream Sync
 
 permissions:
-  contents: write
+  contents: read
 
+# 2026-11-05 上游合并（merge/upstream-20261105）后按 R-SYNC-02 改造：
+# 移除每日 schedule，仅保留手动触发；禁止 reset --hard / force-with-lease / 直推 main。
+# 本 workflow 只读对比上游差异并输出报告，不写入任何分支。
+# 如需恢复自动同步，按 R-SYNC-03 另立需求：创建 PR 并通过全部 Gate，不得直接写 main。
 on:
-  schedule:
-    - cron: "0 0 * * *" # every day
   workflow_dispatch:
 
 jobs:
   sync_latest_from_upstream:
-    name: Sync latest commits from upstream repo
+    name: Compare upstream changes (read-only, no push)
     runs-on: ubuntu-latest
-    if: ${{ github.event.repository.fork }}
 
     steps:
       - name: Checkout target repo
@@ -21,24 +22,17 @@ jobs:
           fetch-depth: 0
           ref: main
 
-      - name: Sync upstream changes
+      - name: Compare upstream changes
         run: |
-          git config user.name "GH Action - Upstream Sync"
-          git config user.email "action@github.com"
-
           git remote add upstream https://github.com/cmliu/edgetunnel.git
           git fetch upstream main
 
+          echo "== main...upstream/main (left=local ahead, right=upstream ahead) =="
+          git rev-list --left-right --count main...upstream/main
+
           if git diff --quiet HEAD upstream/main; then
-            # 内容和上游一致，直接对齐，顺带清理历史分叉留下的多余 merge commit
-            git reset --hard upstream/main
-            git push --force-with-lease origin main
+            echo "内容与上游一致，无需同步。"
           else
-            # 有本地修改，保持原来的合并方式，不覆盖任何人的改动
-            if ! git pull --no-rebase upstream main; then
-              echo "[Error] 合并上游变更产生冲突，自动同步已暂停，请手动 Sync Fork 并解决冲突。"
-              echo "[Error] Merge conflict detected while syncing upstream. Please sync your fork manually and resolve the conflicts."
-              exit 1
-            fi
-            git push origin main
+            echo "检测到上游差异。请人工创建候选分支执行 merge 并走完整 Gate 验证，禁止自动直推 main。"
+            git diff --stat HEAD upstream/main
           fi

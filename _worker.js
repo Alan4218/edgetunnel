@@ -1,7 +1,7 @@
 const Version = '2026-10-08 22:23:27';
 let config_JSON, 缓存SOCKS5白名单 = null, 调试日志打印 = false;
 let SOCKS5白名单 = ['*tapecontent.net', '*cloudatacdn.com', '*loadshare.org', '*cdn-centaurus.com', 'scholar.google.com'];
-const Pages静态页面 = 'https://64dad858.edt-pages-github-io-644.pages.dev', EDT_版本号 = Number(String(Version).replace(/\D+/g, '')); // STAGING-ONLY(P5-3): 配对候选EDT预览，验证后 revert
+const Pages静态页面 = 'https://edt-pages-github-io-644.pages.dev', EDT_版本号 = Number(String(Version).replace(/\D+/g, ''));
 ///////////////////////////////////////////////////////优选订阅生成器维护者列表///////////////////////////////////////////////
 const SUB选项列表 = [
 	{ 名称: '优选1', SUB: 'Sub.Cmliussss.Net' },

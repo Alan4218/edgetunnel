@@ -4,7 +4,7 @@ permissions:
   contents: read
 
 # 2026-11-05 上游合并（merge/upstream-20261105）后按 R-SYNC-02 改造：
-# 移除每日 schedule，仅保留手动触发；禁止 reset --hard / force-with-lease / 直推 main。
+# 移除每日定时触发，仅保留手动触发；禁止强制重置、强推或直推 main。
 # 本 workflow 只读对比上游差异并输出报告，不写入任何分支。
 # 如需恢复自动同步，按 R-SYNC-03 另立需求：创建 PR 并通过全部 Gate，不得直接写 main。
 on:
